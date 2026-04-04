@@ -1,0 +1,134 @@
+body{
+    background-color: #37DFBD;
+    padding:0;
+    margin:0;
+}
+
+.header, .form > div, .result > div{
+    padding: 5rem;
+}
+
+.form > div{
+    margin-top: -2rem;
+    margin-bottom: -2rem;
+}
+
+.header{
+    grid-area: header;
+    background-color: black;
+}
+
+.form{
+    grid-area: form;
+    height: auto;
+    display: grid;
+    grid-template-columns: 1fr .5fr;
+    grid-template-areas: "enterWords options";
+}
+
+.result{
+    grid-area: result;
+    background-color: black;
+    height: auto;
+    display: grid;
+    grid-template-columns: .5fr 1fr;
+    grid-template-areas: "securityLevel yourPassword";
+    margin-bottom: 0;
+}
+
+.enterWords{
+    grid-area: enterWords;
+}
+
+.options{
+    grid-area: options;
+    background-color: #D6FFF6;
+}
+
+.securityLevel{
+    grid-area: securityLevel;
+}
+
+.yourPassword{
+    grid-area: yourPassword;
+}
+
+.wordFields{
+    display: grid;
+    width: 75%;
+    grid-template-columns: .5fr .5fr .5fr;
+}
+
+.container{
+    width:100vw;
+    font-family: "helvetica-lt-pro", sans-serif;
+    display: grid;
+    height: 100vh;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas: 
+    "header"
+    "form"
+    "result";
+    grid-gap:2rem;
+}
+
+h1{
+    font-family: "typeka", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 64;
+    text-transform: uppercase;
+}
+
+mark{
+    color: #201F24;
+    background-color: #37DFBD;
+}
+
+h2{
+    font-family: "typeka", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 36px;
+    text-transform: uppercase;
+}
+
+.teal{
+    color: #37DFBD;
+}
+
+.ice{
+    color: #D6FFF6;
+}
+
+h3{
+    font-family: "helvetica-lt-pro", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 28px;
+    color: white;
+    text-transform: uppercase;    
+}
+
+h3.slogan{
+    font-weight: 400;
+}
+
+h4, label{
+    font-family: "helvetica-lt-pro", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+p{
+    font-size: 16px;
+}
+
+#pass{
+    width: 75%;
+    height: 5rem;
+    font-size: xx-large;
+    padding: 1rem;
+}
