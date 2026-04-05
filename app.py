@@ -30,19 +30,23 @@ def home():
             P = Password(word1, word2, word3, word4, word5, separator)
             combined = P.combine_words()
             randomized = P.randomize_password(combined)
-            checker = P.password_strength_tester(randomized)
-            cracked = P.mock_attack(randomized)
+            
+             #should only test randomized if selected checkbox
+            if checked:
+                password = randomized
+                checker = P.password_strength_tester(randomized)
+                cracked = P.mock_attack(randomized)
+            else :
+                password = combined
+                checker = P.password_strength_tester(combined)
+                cracked = P.mock_attack(combined)
+            
             if checker == "Very Secure":
                 face = "/static/images/faces-01.png"
             elif checker == "Moderately Secure":
                 face = "/static/images/faces-02.png"
             else:
                 face = "/static/images/faces-03.png"
-            
-            if checked:
-                password = randomized
-            else :
-                password = combined
             
 
         elif action == "check":
