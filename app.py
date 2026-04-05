@@ -7,6 +7,7 @@ app = Flask(__name__)
 def home():
     password = ""
     checker = ""
+    face = "/static/images/faces-03.png";
 
     if request.method == "POST":
         action = request.form.get("action")
@@ -17,27 +18,36 @@ def home():
             word3 = request.form["word3"] or None
             word4 = request.form["word4"] or None
             word5 = request.form["word5"] or None
-            # replace = request.form["replace"] or None
             separator = request.form["sep"] or "_"
 
             P = Password(word1, word2, word3, word4, word5, separator)
             combined = P.combine_words()
             randomized = P.randomize_password(combined)
             checker = P.password_strength_tester(randomized)
-            # default face value is unhappy (Not Very Secure)
-            # face = "/{/{ url_for('static', filename='images/faces-03.png') /}/}"
-            # if checker == "Very Secure":
-            #     face = "/{/{ url_for('static', filename='images/faces-01.png') /}/}"
-            # elif checker == "Moderately Secure":
-            #     face = "/{/{ url_for('static', filename='images/faces-02.png') /}/}"
+            if checker == "Very Secure":
+                face = "/static/images/faces-01.png"
+                print("very secure")
+            elif checker == "Moderately Secure":
+                face = "/static/images/faces-02.png"
+                print("moderately secure")
+            else:
+                face = "/static/images/faces-03.png"
+                print("not secure")
+            
             password = randomized
 
         elif action == "check":
             password = request.form["pass"]
             P = Password("", "")
             checker = P.password_strength_tester(password)
+            if checker == "Very Secure":
+                face = "/static/images/faces-01.png"
+            elif checker == "Moderately Secure":
+                face = "/static/images/faces-02.png"
+            else:
+                face = "/static/images/faces-03.png"
 
-    return render_template("index.html", password=password, checker=checker)
+    return render_template("index.html", password=password, checker=checker, face=face)
 
 if __name__ == "__main__":
     app.run(debug=True)
