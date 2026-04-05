@@ -37,7 +37,7 @@
             document.getElementById("check").textContent = "";
 
             document.getElementsByClassName("ranking")[0].children[0].src = "{{ url_for('static', filename='images/empty.png') }}";
-            document.getElementById("mock").value = "";
+            document.getElementById("mock").textContent = "";
         }
 </script>
 </head>
@@ -59,8 +59,6 @@
                         
                         <input type="text" id="word4" name="word4" value="{{word4}}"><br>
                         <label for="word4">Word 4</label><br>
-                        <p id="error-message" style="color: red;"></p>
-                        <button type="submit">Generate Password</button>
                     </div>
                     <div>
                         <input type="text" id="word2" name="word2" value="{{word2}}"><br>
@@ -74,6 +72,8 @@
                         <label for="word3">Word 3</label><br><br>
                     </div>
                 </div>
+                <p id="error-message" style="color: magenta; font-weight: 600; font-style: italic;"></p>
+                <button type="submit" id="gen">Generate Password</button>
             </div>
             <div class="options">
                 <h2>Options</h2>
@@ -85,8 +85,11 @@
                         <input type="checkbox" id="replace" name="replace" >
                         <!-- new change -->
                         <div>
-                            <label for="replace">Convert letters to common replacements</label>
-                            <p>Ex: ‘o’ → ‘0,’ ‘a’ → ‘@,’ ‘i’ → ‘1,’ etc.</p>
+                            <label for="replace">Increase Uniqueness</label>
+                            <p>
+                                Convert letters to common replacements <br> and add random numbers and symbols.<br>
+                                <em>Ex: ‘o’ → ‘0,’ ‘a’ → ‘@,’ ‘i’ → ‘1,’ etc.</em>
+                            </p>
                         </div>
                     </div>
                 </div>
