@@ -7,7 +7,8 @@ app = Flask(__name__)
 def home():
     password = ""
     checker = ""
-    face = "/static/images/faces-03.png";
+    face = "/static/images/faces-03.png"
+    cracked = ""
     word1 = ""
     word2 = ""
     word3 = ""
@@ -30,6 +31,7 @@ def home():
             combined = P.combine_words()
             randomized = P.randomize_password(combined)
             checker = P.password_strength_tester(randomized)
+            cracked = P.mock_attack(randomized)
             if checker == "Very Secure":
                 face = "/static/images/faces-01.png"
             elif checker == "Moderately Secure":
@@ -52,6 +54,7 @@ def home():
             word5 = request.form.get("word5", "")
             P = Password("", "")
             checker = P.password_strength_tester(password)
+            cracked = P.mock_attack(randomized)
             if checker == "Very Secure":
                 face = "/static/images/faces-01.png"
             elif checker == "Moderately Secure":
@@ -61,7 +64,7 @@ def home():
 
     return render_template("index.html", password=password, checker=checker,
                            word1=word1, word2=word2, word3=word3 or "",
-                           word4=word4 or "", word5=word5 or "", face = face)
+                           word4=word4 or "", word5=word5 or "", face = face, cracked=cracked)
 
 if __name__ == "__main__":
     app.run(debug=True)
