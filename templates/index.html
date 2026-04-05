@@ -76,6 +76,31 @@
                 <div class="securityLevel">
                     <h2 class="teal">Security Level</h2>
                     <p class="teal">{{checker}}</p>
+                    <!-- New Addition -->
+                    <!-- Display version based on security level -->
+                    <div class="ranking">
+                        <div id="notSecure">
+                            <h3>Not Very Secure</h3>
+                        </div>
+                        <div id="modSecure">
+                            <h3>Moderately Secure</h3>
+                        </div>
+                        <div id="verySecure">
+                            <h3>Very Secure</h3>
+                        </div>
+                    </div>
+
+                    <!-- Only display suggestions if the password could be more secure -->
+                    <div class="suggestions">
+                        <h4 class="ice">Suggestions</h4>
+                        <ul>
+                            <li>At least 12 characters</li>
+                            <li>At least 3 number</li>
+                            <li>At least 3 symbol</li>
+                            <li>At least 3 uppercase letters</li>
+                            <li>At least 3 lowercase letters</li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="yourPassword">
                     <h2 class="teal">Your Password</h2>
