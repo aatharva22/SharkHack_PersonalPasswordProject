@@ -5,21 +5,26 @@
     <link rel="stylesheet" href="https://use.typekit.net/lyg1asp.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <script>
-    function validateForm() {
-    const word1 = document.getElementById("word1").value.trim();
-    const word2 = document.getElementById("word2").value.trim();
-    const word3 = document.getElementById("word3").value.trim();
-    const errorMessage = document.getElementById("error-message");
-
-    if (word1 === "" || word2 === "") {
-        errorMessage.textContent = "Please fill in all required fields.";
-        return false;
-    }
-
-    errorMessage.textContent = "";
-    return true;
-    }
-</script>
+        function validateForm() {
+            const word1 = document.getElementById("word1").value.trim();
+            const word2 = document.getElementById("word2").value.trim();
+            const word3 = document.getElementById("word3").value.trim();
+            const errorMessage = document.getElementById("error-message");
+        
+            if (word1 === "" || word2 === "") {
+                errorMessage.textContent = "Please fill in all required fields.";
+                return false;
+            }
+        
+            errorMessage.textContent = "";
+            return true;
+        }
+    
+        function copy(){
+                navigator.clipboard.writeText(document.getElementById('pass').value);
+                alert('Text copied to the clipboard!');
+        }
+    </script>
 </head>
 <body>
     <div class="container">
@@ -63,7 +68,10 @@
 
                     <div class="check">
                         <input type="checkbox" id="replace" name="replace" >
-                        <label for="replace">Convert letters to common replacements</label>
+                        <div>
+                            <label for="replace">Convert letters to common replacements</label>
+                            <p>Ex: ‘o’ → ‘0,’ ‘a’ → ‘@,’ ‘i’ → ‘1,’ etc.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -110,7 +118,11 @@
                     <h2 class="teal">Your Password</h2>
                     <form method="post" class="editGenerated">
                         <input type="hidden" name="action" value="check">
-                        <input type="text" id="pass" name="pass" value="{{password}}"><br><br>
+                        <div>
+                            <input type="text" id="pass" name="pass" value="{{password}}">
+                            <img src="{{ url_for('static', filename='images/clipboard.png') }}" class="clickable" onclick="copy();">
+                        </div>
+                        <br>
                         <button type="submit" id="checkStrength" name="checkStrength" >Check Strength</button>
                     </form>
                 </div>
