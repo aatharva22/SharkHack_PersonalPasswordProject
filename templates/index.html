@@ -26,18 +26,19 @@
         }
 
         function reset() {
-        document.getElementById("word1").value = "";
-        document.getElementById("word2").value = "";
-        document.getElementById("word3").value = "";
-        document.getElementById("word4").value = "";
-        document.getElementById("word5").value = "";
-        document.getElementById("sep").value = "";
+            document.getElementById("word1").value = "";
+            document.getElementById("word2").value = "";
+            document.getElementById("word3").value = "";
+            document.getElementById("word4").value = "";
+            document.getElementById("word5").value = "";
+            document.getElementById("sep").value = "";
 
-        document.getElementById("pass").value = "";
-        document.getElementById("check").textContent = "";
+            document.getElementById("pass").value = "";
+            document.getElementById("check").textContent = "";
 
-        document.getElementsByClassName("ranking")[0].children[0].src = "{{ url_for('static', filename='images/empty.png') }}";
-    }
+            document.getElementsByClassName("ranking")[0].children[0].src = "{{ url_for('static', filename='images/empty.png') }}";
+            document.getElementById("mock").value = "";
+        }
 </script>
 </head>
 <body>
@@ -103,7 +104,11 @@
                     <!-- Display version based on security level -->
                     <div class="ranking">
                         <img src="{{face}}">
-                        <h3 id="check">{{checker}}</h3>
+                        <!-- added -->
+                        <div>
+                            <h3 id="check">{{checker}}</h3>
+                            <p id="mock">{{cracked}}</p>
+                        </div>
                     </div>
 
                     <!-- Only display suggestions if the password could be more secure -->
