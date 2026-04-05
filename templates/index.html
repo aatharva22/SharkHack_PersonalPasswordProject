@@ -24,6 +24,18 @@
             navigator.clipboard.writeText(document.getElementById('pass').value);
             alert('Text copied to the clipboard!');
         }
+
+        function reset() {
+        document.getElementById("word1").value = "";
+        document.getElementById("word2").value = "";
+        document.getElementById("word3").value = "";
+        document.getElementById("word4").value = "";
+        document.getElementById("word5").value = "";
+        document.getElementById("sep").value = "";
+
+        document.getElementById("pass").value = "";
+        document.getElementById("check").textContent = "";
+    }
 </script>
 </head>
 <body>
@@ -39,25 +51,25 @@
                 <h2>Please enter up to 5 words</h2>
                 <div class="wordFields">
                     <div>
-                        <input type="text" id="word1" name="word1"><br>
-                        <label for="word1">*Word 1</label><br><br>
-                        
-                        <input type="text" id="word4" name="word4"><br>
-                        <label for="word4">Word 4</label><br>
-                        <p id="error-message" style="color: red;"></p>
-                        <button type="submit">Generate Password</button>
-                    </div>
-                    <div>
-                        <input type="text" id="word2" name="word2"><br>
-                        <label for="word2">*Word 2</label><br><br>
+                        <input type="text" id="word1" name="word1" value="{{word1}}"><br>
+                        <label for="word1">Word 1*</label><br><br>
 
-                        <input type="text" id="word5" name="word5"><br>
-                        <label for="word5">Word 5</label><br>
+                        <input type="text" id="word2" name="word2" value="{{word2}}"><br>
+                        <label for="word2">Word 2*</label><br>
                     </div>
                     <div>
-                        <input type="text" id="word3" name="word3"><br>
+                        <input type="text" id="word3" name="word3" value="{{word3}}"><br>
                         <label for="word3">Word 3</label><br><br>
+
+                        <input type="text" id="word4" name="word4" value="{{word4}}"><br>
+                        <label for="word4">Word 4</label><br>
                     </div>
+                    <div>
+                        <input type="text" id="word5" name="word5" value="{{word5}}"><br>
+                        <label for="word5">Word 5</label><br><br>
+                    </div>
+                    <p id="error-message" style="color: red;"></p>
+                    <button type="submit" >Generate Password</button>
                 </div>
             </div>
             <div class="options">
@@ -89,7 +101,7 @@
                     <!-- Display version based on security level -->
                     <div class="ranking">
                         <img src="{{face}}">
-                        <h3>{{checker}}</h3>
+                        <h3 id="check">{{checker}}</h3>
                     </div>
 
                     <!-- Only display suggestions if the password could be more secure -->
@@ -108,13 +120,20 @@
                     <h2 class="teal">Your Password</h2>
                     <form method="post" class="editGenerated">
                         <input type="hidden" name="action" value="check">
+                        <input type="hidden" name="word1" value="{{word1}}">
+                        <input type="hidden" name="word2" value="{{word2}}">
+                        <input type="hidden" name="word3" value="{{word3}}">
+                        <input type="hidden" name="word4" value="{{word4}}">
+                        <input type="hidden" name="word5" value="{{word5}}">
                         <div>
                             <input type="text" id="pass" name="pass" value="{{password}}">
                             <img src="{{ url_for('static', filename='images/clipboard.png') }}" class="clickable" onclick="copy();">
                         </div>
                         <br>
                         <button type="submit" id="checkStrength" name="checkStrength" >Check Strength</button>
+                        
                     </form>
+                    <button id="checkStrength" onclick="reset()" >Reset</button>
                 </div>
             </div>
         {% endif %}

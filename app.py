@@ -8,6 +8,11 @@ def home():
     password = ""
     checker = ""
     face = "/static/images/faces-03.png";
+    word1 = ""
+    word2 = ""
+    word3 = ""
+    word4 = ""
+    word5 = ""
 
     if request.method == "POST":
         action = request.form.get("action")
@@ -18,6 +23,7 @@ def home():
             word3 = request.form["word3"] or None
             word4 = request.form["word4"] or None
             word5 = request.form["word5"] or None
+            checked = request.form.get("replace")
             separator = request.form["sep"] or "_"
 
             P = Password(word1, word2, word3, word4, word5, separator)
@@ -35,6 +41,11 @@ def home():
 
         elif action == "check":
             password = request.form["pass"]
+            word1 = request.form.get("word1", "")
+            word2 = request.form.get("word2", "")
+            word3 = request.form.get("word3", "")
+            word4 = request.form.get("word4", "")
+            word5 = request.form.get("word5", "")
             P = Password("", "")
             checker = P.password_strength_tester(password)
             if checker == "Very Secure":
@@ -44,7 +55,9 @@ def home():
             else:
                 face = "/static/images/faces-03.png"
 
-    return render_template("index.html", password=password, checker=checker, face=face)
+    return render_template("index.html", password=password, checker=checker,
+                           word1=word1, word2=word2, word3=word3 or "",
+                           word4=word4 or "", word5=word5 or "", face = face)
 
 if __name__ == "__main__":
     app.run(debug=True)
