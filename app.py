@@ -37,7 +37,11 @@ def home():
             else:
                 face = "/static/images/faces-03.png"
             
-            password = randomized
+            if checked:
+                password = randomized
+            else :
+                password = combined
+            
 
         elif action == "check":
             password = request.form["pass"]
