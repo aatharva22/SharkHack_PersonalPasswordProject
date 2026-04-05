@@ -54,7 +54,7 @@ def home():
             word5 = request.form.get("word5", "")
             P = Password("", "")
             checker = P.password_strength_tester(password)
-            cracked = P.mock_attack(randomized)
+            cracked = P.mock_attack(password)
             if checker == "Very Secure":
                 face = "/static/images/faces-01.png"
             elif checker == "Moderately Secure":
