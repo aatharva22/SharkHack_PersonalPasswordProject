@@ -22,7 +22,6 @@ body{
 
 #checkStrength, #reset{
     background-color: #37DFBD;
-    width: 11rem;
     border-style: none;
 }
 
@@ -36,9 +35,13 @@ body{
     margin-top: 1rem;
 }
 
+#gen{
+    width: 13.8rem;
+}
+
 button{
     height: 4rem;
-    width: 100%;
+    width: 11rem;
     background-color: #D6FFF6;
     font-size: 16px;
     padding: .5rem;
@@ -253,7 +256,6 @@ p{
 }
 
 #mock{
-    font-style: normal;
     color: white;
 }
 
