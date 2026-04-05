@@ -26,13 +26,10 @@ def home():
             checker = P.password_strength_tester(randomized)
             if checker == "Very Secure":
                 face = "/static/images/faces-01.png"
-                print("very secure")
             elif checker == "Moderately Secure":
                 face = "/static/images/faces-02.png"
-                print("moderately secure")
             else:
                 face = "/static/images/faces-03.png"
-                print("not secure")
             
             password = randomized
 
