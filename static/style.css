@@ -186,6 +186,17 @@ h4, label{
     color: white;
 }
 
+.ranking > div{
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-gap: .4fr;
+    align-items: center;
+}
+
+img{
+    width: 4rem;
+}
+
 li{
     margin-bottom: .5rem;
 }
