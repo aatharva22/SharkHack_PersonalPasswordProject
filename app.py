@@ -14,6 +14,7 @@ def home():
     word3 = ""
     word4 = ""
     word5 = ""
+    sep = ""
 
     if request.method == "POST":
         action = request.form.get("action")
@@ -25,6 +26,7 @@ def home():
             word4 = request.form["word4"] or None
             word5 = request.form["word5"] or None
             checked = request.form.get("replace")
+            sep = request.form["sep"] or None
             separator = request.form["sep"] or "_"
 
             P = Password(word1, word2, word3, word4, word5, separator)
@@ -68,7 +70,7 @@ def home():
 
     return render_template("index.html", password=password, checker=checker,
                            word1=word1, word2=word2, word3=word3 or "",
-                           word4=word4 or "", word5=word5 or "", face = face, cracked=cracked)
+                           word4=word4 or "", word5=word5 or "", sep=sep or "", face = face, cracked=cracked)
 
 if __name__ == "__main__":
     app.run(debug=True)
