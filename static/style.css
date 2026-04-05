@@ -20,11 +20,20 @@ body{
     padding-bottom: 16rem;
 }
 
-#checkStrength{
+#checkStrength, #reset{
     background-color: #37DFBD;
     width: 11rem;
-    margin-top: 2rem;
     border-style: none;
+}
+
+#checkStrength{
+    float: left;
+    margin-right: 1rem;
+    margin-top: 2rem;
+}
+
+#reset{
+    margin-top: 1rem;
 }
 
 button{
