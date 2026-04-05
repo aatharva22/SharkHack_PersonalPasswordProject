@@ -17,7 +17,7 @@ body{
     margin-top: -2rem;
     margin-bottom: -4rem;
     padding-top: 8rem;
-    padding-bottom: 16rem;
+    padding-bottom: 18rem;
 }
 
 #checkStrength, #reset{
@@ -90,10 +90,10 @@ button:hover, .clickable:hover{
     display: grid;
     grid-template-columns: .7fr 1fr;
     grid-template-areas: "securityLevel yourPassword";
-    margin-top: -12rem;
+    margin-top: -14rem;
     margin-bottom: 0;
     padding-top: 4rem;
-    height: 60vh;
+    height: 65vh;
     background-image: url('/static/images/BlackTornPaper-Bottom.png');
     background-size:cover;
     background-position: center;
