@@ -52,24 +52,24 @@
                 <div class="wordFields">
                     <div>
                         <input type="text" id="word1" name="word1" value="{{word1}}"><br>
-                        <label for="word1">Word 1*</label><br><br>
-
+                        <label for="word1">*Word 1</label><br><br>
+                        
+                        <input type="text" id="word4" name="word4" value="{{word4}}"><br>
+                        <label for="word4">Word 4</label><br>
+                        <p id="error-message" style="color: red;"></p>
+                        <button type="submit">Generate Password</button>
+                    </div>
+                    <div>
                         <input type="text" id="word2" name="word2" value="{{word2}}"><br>
-                        <label for="word2">Word 2*</label><br>
+                        <label for="word2">*Word 2</label><br><br>
+
+                        <input type="text" id="word5" name="word5" value="{{word5}}"><br>
+                        <label for="word5">Word 5</label><br>
                     </div>
                     <div>
                         <input type="text" id="word3" name="word3" value="{{word3}}"><br>
                         <label for="word3">Word 3</label><br><br>
-
-                        <input type="text" id="word4" name="word4" value="{{word4}}"><br>
-                        <label for="word4">Word 4</label><br>
                     </div>
-                    <div>
-                        <input type="text" id="word5" name="word5" value="{{word5}}"><br>
-                        <label for="word5">Word 5</label><br><br>
-                    </div>
-                    <p id="error-message" style="color: red;"></p>
-                    <button type="submit" >Generate Password</button>
                 </div>
             </div>
             <div class="options">
@@ -133,7 +133,7 @@
                         <button type="submit" id="checkStrength" name="checkStrength" >Check Strength</button>
                         
                     </form>
-                    <button id="checkStrength" onclick="reset()" >Reset</button>
+                    <button id="reset" onclick="reset()" >Reset</button>
                 </div>
             </div>
         {% endif %}
