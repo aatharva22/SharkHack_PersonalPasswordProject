@@ -96,6 +96,50 @@ class Password:
         else:
             string = "Not Very Secure"
         return string
+
+    def mock_attack(self, generated_password: str) -> str:
+        '''
+        simulates realistic password cracking attempts
+        '''
+        common_passwords = [
+            "password", "123456", "qwerty", "admin",
+            "welcome", "letmein", "abc123"
+            ]
+        if generated_password.lower() in common_passwords:
+            return "Password cracked instantly (common password)."
+
+        for word in common_passwords:
+            if word in generated_password.lower():
+                return "Password is weak (contains common word)."
+
+        charset_size = 0
+        if any(c.islower() for c in generated_password):
+            charset_size += 26
+        if any(c.isupper() for c in generated_password):
+            charset_size += 26
+        if any(c.isdigit() for c in generated_password):
+            charset_size += 10
+        if any(c in symbols for c in generated_password):
+            charset_size += len(symbols)
+
+        length = len(generated_password)
+
+        combinations = charset_size ** length
+
+        guesses_per_second = 1_000_000_000
+
+        seconds = combinations / guesses_per_second
+
+        if seconds < 60:
+            return "Password could be cracked in seconds."
+        elif seconds < 3600:
+            return "Password could be cracked in minutes."
+        elif seconds < 86400:
+            return "Password could be cracked in hours."
+        elif seconds < 31536000:
+            return "Password could be cracked in days."
+        else:
+            return "Password is very strong (would take years to crack)."
         
 # def main() -> None:
 #     '''
