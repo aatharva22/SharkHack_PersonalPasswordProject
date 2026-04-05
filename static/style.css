@@ -32,8 +32,18 @@ button{
     text-transform: uppercase;
 }
 
-button:hover{
+button:hover, .clickable:hover{
     cursor: pointer;
+}
+
+.editGenerated > div {
+    display: flex;
+    align-items: center;
+}
+
+.clickable{
+    width: 4rem;
+    margin-left: 1.5rem;
 }
 
 .header{
@@ -47,6 +57,8 @@ button:hover{
     display: grid;
     grid-template-columns: 1fr .7fr;
     grid-template-areas: "enterWords options";
+    padding: 0;
+    margin: 0;
 }
 
 .result{
@@ -186,7 +198,7 @@ h4, label{
     color: white;
 }
 
-.ranking > div{
+.ranking {
     display: grid;
     grid-template-columns: 1fr 4fr;
     grid-gap: .4fr;
@@ -194,7 +206,7 @@ h4, label{
 }
 
 img{
-    width: 4rem;
+    width: 6rem;
 }
 
 li{
@@ -206,5 +218,6 @@ h4{
 }
 
 p{
+    font-style: italic;
     font-size: 16px;
 }
