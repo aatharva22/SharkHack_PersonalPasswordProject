@@ -10,21 +10,21 @@
             const word2 = document.getElementById("word2").value.trim();
             const word3 = document.getElementById("word3").value.trim();
             const errorMessage = document.getElementById("error-message");
-        
+
             if (word1 === "" || word2 === "") {
                 errorMessage.textContent = "Please fill in all required fields.";
                 return false;
             }
-        
+
             errorMessage.textContent = "";
             return true;
         }
-    
+
         function copy(){
-                navigator.clipboard.writeText(document.getElementById('pass').value);
-                alert('Text copied to the clipboard!');
+            navigator.clipboard.writeText(document.getElementById('pass').value);
+            alert('Text copied to the clipboard!');
         }
-    </script>
+</script>
 </head>
 <body>
     <div class="container">
@@ -68,6 +68,7 @@
 
                     <div class="check">
                         <input type="checkbox" id="replace" name="replace" >
+                        <!-- new change -->
                         <div>
                             <label for="replace">Convert letters to common replacements</label>
                             <p>Ex: ‘o’ → ‘0,’ ‘a’ → ‘@,’ ‘i’ → ‘1,’ etc.</p>
@@ -83,23 +84,12 @@
             <div class="result">
                 <div class="securityLevel">
                     <h2 class="teal">Security Level</h2>
-                    <p class="teal">{{checker}}</p>
 
                     <!-- New Addition -->
                     <!-- Display version based on security level -->
                     <div class="ranking">
-                        <div id="notSecure">
-                            <img src="{{ url_for('static', filename='images/faces-03.png') }}">
-                            <h3>Not Very Secure</h3>
-                        </div>
-                        <div id="modSecure">
-                            <img src="{{ url_for('static', filename='images/faces-02.png') }}">
-                            <h3>Moderately Secure</h3>
-                        </div>
-                        <div id="verySecure">
-                            <img src="{{ url_for('static', filename='images/faces-01.png') }}">
-                            <h3>Very Secure</h3>
-                        </div>
+                        <img src="{{face}}">
+                        <h3>{{checker}}</h3>
                     </div>
 
                     <!-- Only display suggestions if the password could be more secure -->
