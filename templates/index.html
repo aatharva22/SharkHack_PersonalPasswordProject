@@ -35,6 +35,8 @@
 
         document.getElementById("pass").value = "";
         document.getElementById("check").textContent = "";
+
+        document.getElementsByClassName("ranking")[0].children[0].src = "{{ url_for('static', filename='images/empty.png') }}";
     }
 </script>
 </head>
