@@ -120,8 +120,7 @@ button:hover, .clickable:hover{
 
 .check{
     display: grid;
-    grid-template-columns: auto auto;
-    grid-gap: .4rem;
+    grid-template-columns: 3rem auto;
 }
 
 #pass{
