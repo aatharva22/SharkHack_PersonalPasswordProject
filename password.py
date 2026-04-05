@@ -97,12 +97,12 @@ class Password:
         if lower_counter >= 3:
             security_score += 1
 
-        if security_score == 5:
-            string = "Password is very secure."
+        if security_score >= 5:
+            string = "Very Secure"
         elif security_score >= 3 and security_score < 5:
-            string = "Password is moderately secure."
+            string = "Moderately Secure"
         else:
-            string = "Password is not secure."
+            string = "Not Very Secure"
         return string
 
     def mock_attack(self, generated_password: str) -> str:
