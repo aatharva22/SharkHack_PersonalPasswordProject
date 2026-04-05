@@ -4,13 +4,36 @@ body{
     margin:0;
 }
 
-.header, .form > div, .result > div{
+.header, .form > form > div, .result > div{
     padding: 5rem;
 }
 
-.form > div{
+.form > form > div{
     margin-top: -2rem;
-    margin-bottom: -2rem;
+    margin-bottom: -4rem;
+}
+
+#checkStrength{
+    background-color: #37DFBD;
+    width: 11rem;
+    margin-top: 2rem;
+    border-style: none;
+}
+
+button{
+    height: 4rem;
+    width: 100%;
+    background-color: #D6FFF6;
+    font-size: 16px;
+    padding: .5rem;
+    font-family: "helvetica-lt-pro", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+    text-transform: uppercase;
+}
+
+button:hover{
+    cursor: pointer;
 }
 
 .header{
@@ -18,11 +41,11 @@ body{
     background-color: black;
 }
 
-.form{
+.form > form{
     grid-area: form;
     height: auto;
     display: grid;
-    grid-template-columns: 1fr .5fr;
+    grid-template-columns: 1fr .7fr;
     grid-template-areas: "enterWords options";
 }
 
@@ -31,7 +54,7 @@ body{
     background-color: black;
     height: auto;
     display: grid;
-    grid-template-columns: .5fr 1fr;
+    grid-template-columns: .7fr 1fr;
     grid-template-areas: "securityLevel yourPassword";
     margin-bottom: 0;
 }
@@ -57,6 +80,43 @@ body{
     display: grid;
     width: 75%;
     grid-template-columns: .5fr .5fr .5fr;
+    grid-gap: 1rem;
+}
+
+.wordFields > div > label{
+    margin-top: 7px;
+    display: block;
+    text-align: center;
+}
+
+.wordFields > div > input, #sep{
+    width: 100%;
+    height: 2.5rem;
+    font-size: large;
+    padding: .5rem;
+}
+
+#sep{
+    width: 3rem;
+    margin-left: .4rem;
+}
+
+#replace{
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+.check{
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: .4rem;
+}
+
+#pass{
+    width: 75%;
+    height: 5rem;
+    font-size: xx-large;
+    padding: 1rem;
 }
 
 .container{
@@ -76,7 +136,7 @@ h1{
     font-family: "typeka", sans-serif;
     font-weight: 500;
     font-style: normal;
-    font-size: 64;
+    font-size: 67;
     text-transform: uppercase;
 }
 
@@ -105,7 +165,7 @@ h3{
     font-family: "helvetica-lt-pro", sans-serif;
     font-weight: 700;
     font-style: normal;
-    font-size: 28px;
+    font-size: 25px;
     color: white;
     text-transform: uppercase;    
 }
@@ -122,13 +182,18 @@ h4, label{
     text-transform: uppercase;
 }
 
-p{
-    font-size: 16px;
+.suggestions {
+    color: white;
 }
 
-#pass{
-    width: 75%;
-    height: 5rem;
-    font-size: xx-large;
-    padding: 1rem;
+li{
+    margin-bottom: .5rem;
+}
+
+h4{
+    margin-bottom: -.5rem;
+}
+
+p{
+    font-size: 16px;
 }
